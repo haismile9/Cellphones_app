@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ChiTietActivity">
+
+    <!-- Toolbar để hiển thị tiêu đề và nút quay lại -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#B2B4C1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Chi Tiết Sản Phẩm" />
+
+    <!-- FrameLayout để chứa icon giỏ hàng và thông báo -->
+    <FrameLayout
+        android:id="@+id/framegiohang"
+        android:layout_width="55dp"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="right"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/toolbar">
+
+        <!-- Notification Badge để hiển thị số lượng sản phẩm trong giỏ -->
+        <com.nex3z.notificationbadge.NotificationBadge
+            android:id="@+id/menu_sl"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="top|right" />
+
+        <!-- ImageView hiển thị icon giỏ hàng -->
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_cart_24"
+            android:layout_marginTop="15dp" />
+    </FrameLayout>
+
+    <!-- LinearLayout cho phần thông tin sản phẩm -->
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- ImageView hiển thị hình ảnh sản phẩm -->
+        <ImageView
+            android:id="@+id/imgchitiet"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:src="@drawable/iconnew" />
+
+        <!-- LinearLayout chứa thông tin chi tiết sản phẩm -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1">
+
+            <!-- TextView hiển thị tên sản phẩm -->
+            <TextView
+                android:id="@+id/txttensp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <!-- TextView hiển thị giá sản phẩm -->
+            <TextView
+                android:id="@+id/txtgiasp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:text="@string/gi_25000"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <!-- Spinner để chọn số lượng sản phẩm -->
+            <Spinner
+                android:id="@+id/spiner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@drawable/spinner"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp" />
+
+            <!-- Button để thêm sản phẩm vào giỏ hàng -->
+            <Button
+                android:id="@+id/btnthemvaogiohang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/th_m_v_o_gi_h_ng"
+                android:backgroundTint="#478188"
+                android:textColor="@android:color/holo_red_light" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- LinearLayout chứa mô tả chi tiết sản phẩm -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/layout1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- TextView hiển thị tiêu đề cho mô tả chi tiết -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:text="Mô tả chi tiết sản phẩm"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- ScrollView để chứa mô tả sản phẩm chi tiết -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <!-- TextView hiển thị mô tả chi tiết sản phẩm -->
+            <TextView
+                android:id="@+id/txtmotachitiet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:text="Nội dung mô tả chi tiết sản phẩm..."
+                android:textSize="16sp" />
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

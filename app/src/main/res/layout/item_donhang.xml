@@ -1,0 +1,64 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        app:cardCornerRadius="4dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <!-- Hiển thị ID đơn hàng -->
+            <TextView
+                android:id="@+id/id_donhang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đơn hàng: 123"
+                android:textColor="@android:color/holo_red_light"
+                android:textStyle="bold"
+                android:paddingBottom="5dp"/>
+
+            <!-- Hiển thị số điện thoại -->
+            <TextView
+                android:id="@+id/tv_sodienthoai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Số điện thoại: 0901234567"
+                android:paddingBottom="5dp"/>
+
+            <!-- Hiển thị email -->
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email: example@example.com"
+                android:paddingBottom="5dp"/>
+
+            <!-- Hiển thị địa chỉ -->
+            <TextView
+                android:id="@+id/tv_diachi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Địa chỉ: 123 Đường ABC, Thành phố XYZ"
+                android:paddingBottom="10dp"/>
+
+            <!-- RecyclerView cho chi tiết đơn hàng -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleview_chitiet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

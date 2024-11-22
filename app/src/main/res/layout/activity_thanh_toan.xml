@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ThanhToanActivity">
+
+    <!-- Toolbar cho thanh tiêu đề -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toobar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#36DD07"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Thanh toán"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <!-- CardView chứa thông tin thanh toán và các trường nhập liệu -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
+        app:cardCornerRadius="4dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:elevation="8dp"
+        app:layout_constraintTop_toBottomOf="@id/toobar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Hiển thị số tiền tổng -->
+            <LinearLayout
+                android:padding="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_attach_money_24" />
+
+                <TextView
+                    android:id="@+id/txttongtien"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25.000"
+                    android:layout_gravity="center"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Đường kẻ ngăn cách -->
+            <View
+                android:layout_marginTop="5dp"
+                android:background="@android:color/darker_gray"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+
+            <!-- Trường nhập số điện thoại -->
+            <LinearLayout
+                android:padding="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_baseline_local_phone_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Nhập số điện thoại">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_sodienthoai"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:text=""
+                        android:textColor="@android:color/holo_red_light"
+                        android:textSize="15sp"
+                        android:textStyle="bold"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <!-- Đường kẻ ngăn cách -->
+            <View
+                android:layout_marginTop="5dp"
+                android:background="@android:color/darker_gray"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+
+            <!-- Trường nhập email -->
+            <LinearLayout
+                android:padding="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Nhập email">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:text=""
+                        android:textColor="@android:color/holo_red_light"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Trường nhập địa chỉ giao hàng -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputlayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/eddiachi"
+            android:drawableLeft="@drawable/ic_baseline_add_location_24"
+            android:padding="5dp"
+            android:hint="Nhập địa chỉ giao hàng"
+            android:textColorHint="@android:color/holo_red_light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Nút đặt hàng -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btndathang"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@id/inputlayout"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/background_button"
+        android:layout_marginRight="10dp"
+        android:text="Đặt hàng"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
